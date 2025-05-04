@@ -3,18 +3,21 @@
 import { motion } from "framer-motion";
 import {
   Terminal,
-  GitBranch,
-  Code,
-  Server,
   Mail,
   Github,
   Linkedin,
   Send,
   Coffee,
   Copyright,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
+import { Skills } from "@/components/Skills";
+import { AboutMe } from "@/components/AboutMe";
+import { projects } from "@/data/projects";
+import { useState } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -23,35 +26,14 @@ const fadeInUp = {
 };
 
 export default function Home() {
-  const skills = [
-    {
-      category: "Frontend",
-      icon: <Code className="h-6 w-6" />,
-      items: ["React", "Next.js", "TypeScript", "Tailwind"],
-    },
-    {
-      category: "Backend",
-      icon: <Server className="h-6 w-6" />,
-      items: ["Node.js", "Python", "PostgreSQL", "MongoDB"],
-    },
-    {
-      category: "Tools",
-      icon: <GitBranch className="h-6 w-6" />,
-      items: ["Git", "Docker", "AWS", "Linux"],
-    },
-  ];
+  const [currentPage, setCurrentPage] = useState(0);
+  const projectsPerPage = 4;
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
-  const projects = [
-    {
-      title: "Project 1",
-      description:
-        "A full-stack application built with Next.js and TypeScript.",
-      techStack: ["Next.js", "TypeScript", "Tailwind"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-    },
-    // Add more projects as needed
-  ];
+  const currentProjects = projects.slice(
+    currentPage * projectsPerPage,
+    (currentPage + 1) * projectsPerPage
+  );
 
   return (
     <main className="bg-[#0a0a0a] min-h-screen text-[#e2e2e2] font-inter">
@@ -63,7 +45,7 @@ export default function Home() {
           <motion.div {...fadeInUp} className="text-center">
             <Terminal className="h-16 w-16 text-accent mx-auto mb-6" />
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Hi, I&apos;m [Name]
+              Hi, I&apos;m [Ahmed]
             </h1>
             <p className="text-xl md:text-2xl text-[#e2e2e2]/80 mb-8">
               I build modern web applications
@@ -86,38 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 bg-[#111111]">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            {...fadeInUp}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            Skills
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {skills.map((category) => (
-              <motion.div
-                key={category.category}
-                {...fadeInUp}
-                className="p-6 rounded-lg bg-[#0a0a0a] border border-gray-800"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  {category.icon}
-                  <h3 className="text-xl font-bold">{category.category}</h3>
-                </div>
-                <ul className="space-y-2">
-                  {category.items.map((item) => (
-                    <li key={item} className="text-[#e2e2e2]/80">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Skills />
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4">
@@ -129,15 +80,40 @@ export default function Home() {
             Projects
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project) => (
+            {currentProjects.map((project) => (
               <ProjectCard key={project.title} {...project} />
             ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="flex justify-center items-center mt-8 gap-4">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(0, prev - 1))}
+              disabled={currentPage === 0}
+              className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <span className="text-text/80">
+              Page {currentPage + 1} of {totalPages}
+            </span>
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
+              }
+              disabled={currentPage === totalPages - 1}
+              className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
           </div>
         </div>
       </section>
 
+      <AboutMe />
+
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-[#111111]">
+      <section id="contact" className="py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             {...fadeInUp}
@@ -172,12 +148,12 @@ export default function Home() {
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full p-3 bg-[#0a0a0a] border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
+                className="w-full p-3 bg-gray-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
               />
               <textarea
                 placeholder="Your message"
                 rows={4}
-                className="w-full p-3 bg-[#0a0a0a] border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
+                className="w-full p-3 bg-gray-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
               />
               <button
                 type="submit"

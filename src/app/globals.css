@@ -2,6 +2,7 @@
 
 :root {
   --background: #0a0a0a;
+  --gray-background: #111111;
   --text: #e2e2e2;
   --accent: #cf0f47;
   --accent-hover: #ff0b55;
@@ -18,6 +19,7 @@ html {
 
 @theme inline {
   --color-background: var(--background);
+  --color-gray-background: var(--gray-background);
   --color-foreground: var(--foreground);
   --color-text: var(--text);
   --color-accent: var(--accent);
@@ -29,6 +31,7 @@ html {
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
+    --gray-background: #111111;
     --foreground: #ededed;
     --accent: #cf0f47;
     --accent-hover: #ff0b55;
