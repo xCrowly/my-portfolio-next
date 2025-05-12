@@ -11,11 +11,15 @@ import {
   Copyright,
   ChevronLeft,
   ChevronRight,
+  Phone,
+  FileUser,
+  Youtube,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Skills } from "@/components/Skills";
 import { AboutMe } from "@/components/AboutMe";
+import { Certificates } from "@/components/Certificates";
 import { projects } from "@/data/projects";
 import { useState } from "react";
 
@@ -112,6 +116,8 @@ export default function Home() {
 
       <AboutMe />
 
+      <Certificates />
+
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -122,26 +128,62 @@ export default function Home() {
             Contact
           </motion.h2>
           <div className="flex flex-col md:flex-row gap-8">
-            <motion.div {...fadeInUp} className="flex-1">
-              <div className="flex gap-6 mb-6">
-                <a
-                  href="mailto:your@email.com"
-                  className="text-[#e2e2e2] hover:text-accent"
-                >
-                  <Mail className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://github.com"
-                  className="text-[#e2e2e2] hover:text-accent"
-                >
-                  <Github className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  className="text-[#e2e2e2] hover:text-accent"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
+            <motion.div {...fadeInUp} className="flex-1 content-around">
+              <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col items-center gap-8">
+                  <div className="grid grid-cols-2 w-full gap-4 max-w-lg">
+                    <div className="flex flex-col gap-4 items-start">
+                      <a
+                        href="mailto:badawy.ca@gmail.com"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <Mail className="h-5 w-5" />
+                        <span>Email</span>
+                      </a>
+                      <a
+                        href="https://github.com"
+                        target="_blank"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <Github className="h-5 w-5" />
+                        <span>GitHub</span>
+                      </a>
+                      <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <Linkedin className="h-5 w-5" />
+                        <span>LinkedIn</span>
+                      </a>
+                    </div>
+                    <div className="flex flex-col gap-4 items-start">
+                      <a
+                        href="callto:+3928097565"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <Phone className="h-5 w-5" />
+                        <span>Phone</span>
+                      </a>
+                      <a
+                        href="https://www.youtube.com/@tikkawi"
+                        target="_blank"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <Youtube className="h-5 w-5" />
+                        <span>YouTube</span>
+                      </a>
+                      <a
+                        href="#"
+                        target="_blank"
+                        className="flex items-center gap-2 text-text hover:text-accent transition-colors"
+                      >
+                        <FileUser className="h-5 w-5" />
+                        <span>Resume</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
             <motion.form {...fadeInUp} className="flex-1 space-y-4">
@@ -169,10 +211,14 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[#e2e2e2]/60">
-          <Copyright className="h-4 w-4" />
-          <span>Built with Next.js and</span>
-          <Coffee className="h-4 w-4" />
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex items-center gap-2 text-[#e2e2e2]/60">
+              <Copyright className="h-4 w-4" />
+              <span>Built with Next.js and</span>
+              <Coffee className="h-4 w-4" />
+            </div>
+          </div>
         </div>
       </footer>
     </main>

@@ -3,31 +3,31 @@ export const projects = [
     title: "E-commerce Platform",
     description: "A full-featured e-commerce platform with real-time inventory management.",
     longDescription: "Built a scalable e-commerce platform that handles thousands of products, features real-time inventory tracking, and integrates with multiple payment gateways. The platform includes an admin dashboard for managing products, orders, and customer data.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Stripe", "Redis", "Docker"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Cursor", "framer-motion", "react"],
     experience: [
       "Implemented real-time inventory tracking using WebSocket",
       "Integrated multiple payment gateways",
       "Optimized database queries for better performance",
       "Implemented caching strategies to reduce server load"
     ],
-    imageUrl: "/images/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    liveUrl: "https://ecommerce-demo.com"
+    imageUrl: "/images/projects/Bella-Italia.png",
+    githubUrl: "https://github.com/xCrowly/italian-ecommerce",
+    liveUrl: "https://italian-ecommerce.netlify.app/"
   },
   {
-    title: "Task Management System",
+    title: "Expense Tracker",
     description: "A collaborative task management system with real-time updates.",
     longDescription: "Developed a comprehensive task management system that allows teams to collaborate effectively. Features include real-time updates, file sharing, task dependencies, and detailed analytics.",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.io", "AWS S3", "Express"],
+    techStack: ["React", "React Router", "BootStrap", "Firebase Authintication", "Firebase Realtime Database", "Charts"],
     experience: [
       "Built real-time collaboration features",
       "Implemented file upload and storage system",
       "Created complex task dependency logic",
       "Developed detailed analytics dashboard"
     ],
-    imageUrl: "/images/projects/task-manager.jpg",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://task-manager-demo.com"
+    imageUrl: "/images/projects/Expense-Tracker.png",
+    githubUrl: "https://expense-tracker-404.netlify.app/",
+    liveUrl: "https://expense-tracker-404.netlify.app/"
   },
   {
     title: "Social Media Dashboard",

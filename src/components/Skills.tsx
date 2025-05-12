@@ -27,7 +27,7 @@ export const Skills = () => {
                 className="p-6 rounded-lg bg-[#0a0a0a] border border-gray-800"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6 text-accent" />
                   <h3 className="text-xl font-bold">{category.category}</h3>
                 </div>
                 <ul className="space-y-2">
@@ -44,4 +44,4 @@ export const Skills = () => {
       </div>
     </section>
   );
-}; 
+};
