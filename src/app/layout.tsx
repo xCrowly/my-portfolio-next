@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Your Name - Portfolio",
-  description: "Personal portfolio showcasing my projects and skills",
+  description: "Passionate Frontend Developer showcasing interactive web projects built with React, Sass, Bootstrap, Firebase, and Next.js. From dynamic calculators to AI-assisted e-commerce platforms, I combine core skills with the power of modern tools to deliver responsive, real-world solutions. Explore my portfolio and see how I use code and creativity to solve problems.",
   icons: [
     { url: '/favicon.ico' },
     { url: '/icon.png', type: 'image/png' },

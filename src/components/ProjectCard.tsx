@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useState, useRef } from "react";
@@ -44,6 +44,7 @@ export const ProjectCard = ({
             src={imageError ? "/images/project-placeholder.jpg" : imageUrl}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
             onError={() => setImageError(true)}
           />

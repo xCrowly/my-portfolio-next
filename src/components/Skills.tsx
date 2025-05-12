@@ -1,4 +1,4 @@
-import { motion, useInView, Variant } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { skills } from "@/data/skills";
 import { useState, useRef } from "react";
 
