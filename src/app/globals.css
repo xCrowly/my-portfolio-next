@@ -3,9 +3,10 @@
 :root {
   --background: #0a0a0a;
   --gray-background: #111111;
-  --text: #e2e2e2;
+  --foreground: #ededed;
   --accent: #cf0f47;
   --accent-hover: #ff0b55;
+  --text: #e2e2e2;
 }
 
 body {

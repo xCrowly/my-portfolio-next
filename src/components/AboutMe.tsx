@@ -12,7 +12,7 @@ export const AboutMe = () => {
   const [showMore, setShowMore] = useState(false);
   const sectionRef = useRef(null);
   const passionsRef = useRef(null);
-  
+
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const passionsInView = useInView(passionsRef, { once: true, amount: 0.3 });
 
@@ -44,7 +44,11 @@ export const AboutMe = () => {
   ];
 
   return (
-    <section id="about" className="py-16 px-4 bg-gray-background" ref={sectionRef}>
+    <section
+      id="about"
+      className="py-16 px-4 bg-gray-background"
+      ref={sectionRef}
+    >
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial="initial"
@@ -60,20 +64,17 @@ export const AboutMe = () => {
           variants={fadeInUp}
           className="mb-12 text-justify max-w-3xl mx-auto"
         >
-          <p className="text-gray-700 dark:text-gray-300 text-lg">
+          <p className="text-gray-300 text-lg">
             Hi! I&apos;m a passionate{" "}
-            <strong className="text-blue-600 dark:text-blue-400">
-              Front-End Developer
-            </strong>{" "}
-            with a solid foundation in HTML, CSS, JavaScript, and modern
-            libraries like <strong>React.js</strong> and{" "}
-            <strong>React Router</strong>. I also work with{" "}
-            <strong>jQuery</strong>, <strong>Bootstrap</strong>,{" "}
+            <strong className="text-blue-400">Front-End Developer</strong> with
+            a solid foundation in HTML, CSS, JavaScript, and modern libraries
+            like <strong>React.js</strong> and <strong>React Router</strong>. I
+            also work with <strong>jQuery</strong>, <strong>Bootstrap</strong>,{" "}
             <strong>Sass/SCSS</strong>, and tools like <strong>Git</strong> &{" "}
             <strong>GitHub</strong>.
           </p>
 
-          <p className="text-gray-700 dark:text-gray-300 text-lg">
+          <p className="text-gray-300 text-lg">
             My background in design software like <strong>Canva</strong>,{" "}
             <strong>Adobe Premiere</strong>, and{" "}
             <strong>DaVinci Resolve</strong> helps me bring visually appealing
@@ -82,14 +83,14 @@ export const AboutMe = () => {
             across all devices.
           </p>
 
-          <h3 className="text-2xl font-semibold text-gray-800 dark:text-white pt-2">
+          <h3 className="text-2xl font-semiboldtext-white pt-2">
             🧠 Learning Beyond My Skillset With AI
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 text-lg">
-            With AI as my coding assistant and research companion, I&apos;ve gone
-            beyond my original skillset to:
+          <p className="text-gray-300 text-lg">
+            With AI as my coding assistant and research companion, I&apos;ve
+            gone beyond my original skillset to:
           </p>
-          
+
           {!showMore ? (
             <motion.button
               onClick={() => setShowMore(true)}
@@ -103,42 +104,43 @@ export const AboutMe = () => {
               animate={{ opacity: 1, height: "auto" }}
               transition={{ duration: 0.3 }}
             >
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 pl-4 space-y-1 text-lg">
+              <ul className="list-disc list-inside text-gray-300 pl-4 space-y-1 text-lg">
                 <li>
-                  Build a full Italian <strong>e-commerce clothing website</strong>{" "}
-                  using <strong>Next.js</strong> and <strong>TypeScript</strong>
+                  Build a full Italian{" "}
+                  <strong>e-commerce clothing website</strong> using{" "}
+                  <strong>Next.js</strong> and <strong>TypeScript</strong>
                 </li>
                 <li>
-                  Learn and implement dynamic routing, third-party APIs, and best
-                  practices for production-ready apps
+                  Learn and implement dynamic routing, third-party APIs, and
+                  best practices for production-ready apps
                 </li>
                 <li>
-                  Currently building this portfolio using <strong>Next.js</strong>{" "}
-                  and <strong>Cursor</strong>
+                  Currently building this portfolio using{" "}
+                  <strong>Next.js</strong> and <strong>Cursor</strong>
                 </li>
               </ul>
 
-              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white pt-4">
+              <h3 className="text-2xl font-semibold text-white pt-4">
                 💡 Why Hire Me?
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 text-lg">
+              <p className="text-gray-300 text-lg">
                 I may be a <strong>Junior Developer</strong>, but I think like a
                 senior learner:
               </p>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 pl-4 space-y-1 text-lg">
+              <ul className="list-disc list-inside text-gray-300 pl-4 space-y-1 text-lg">
                 <li>I ship real, working products</li>
                 <li>I adapt quickly to new technologies and frameworks</li>
                 <li>
-                  I combine human creativity with AI efficiency to solve problems
-                  fast
+                  I combine human creativity with AI efficiency to solve
+                  problems fast
                 </li>
               </ul>
 
-              <p className="text-gray-800 dark:text-white text-lg font-semibold pt-4">
-                If you&apos;re looking for someone who learns fast, works smart, and
-                brings creative energy, let&apos;s connect.
+              <p className="text-white text-lg font-semibold pt-4">
+                If you&apos;re looking for someone who learns fast, works smart,
+                and brings creative energy, let&apos;s connect.
               </p>
-              
+
               <motion.button
                 onClick={() => setShowMore(false)}
                 className="text-accent hover:text-accent/80 font-medium mt-2 transition-colors"
@@ -156,11 +158,11 @@ export const AboutMe = () => {
               animate={passionsInView ? "animate" : "initial"}
               variants={{
                 initial: { opacity: 0, y: 20 },
-                animate: { 
-                  opacity: 1, 
+                animate: {
+                  opacity: 1,
                   y: 0,
-                  transition: { duration: 0.5, delay: index * 0.1 }
-                }
+                  transition: { duration: 0.5, delay: index * 0.1 },
+                },
               }}
               className="p-6 rounded-lg bg-background border border-gray-800 hover:border-accent transition-colors"
             >
@@ -168,7 +170,7 @@ export const AboutMe = () => {
                 {passion.icon}
                 <h3 className="text-xl font-bold">{passion.title}</h3>
               </div>
-              <p className="text-[#e2e2e2]/80">{passion.description}</p>
+              <p className="text-text/80">{passion.description}</p>
             </motion.div>
           ))}
         </div>
