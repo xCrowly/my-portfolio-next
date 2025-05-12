@@ -1,7 +1,7 @@
 import { ExternalLink, Github, Eye } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ProjectModal } from "./ProjectModal";
 
 interface ProjectCardProps {
@@ -27,12 +27,15 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   const [imageError, setImageError] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.3 });
 
   return (
     <>
       <motion.div
+        ref={cardRef}
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
         className="bg-[#0a0a0a] rounded-lg border border-gray-800 overflow-hidden hover:border-accent transition-colors"
       >

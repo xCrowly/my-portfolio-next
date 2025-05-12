@@ -1,14 +1,16 @@
 export const projects = [
   {
     title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform with real-time inventory management.",
-    longDescription: "Built a scalable e-commerce platform that handles thousands of products, features real-time inventory tracking, and integrates with multiple payment gateways. The platform includes an admin dashboard for managing products, orders, and customer data.",
+    description: "A full-featured e-commerce platform built with Next.js.",
+    longDescription: "Developed a modern, scalable e-commerce clothing platform tailored for the Italian market. This application showcases dynamic routing, responsive UI, and a clean, high-end visual design. With the power of AI, I was able to overcome the learning curve of unfamiliar technologies like Next.js and TypeScript to deliver a complete, production-ready solution. The platform includes essential e-commerce features such as product browsing, category filtering, and smooth navigation, all built from scratch using a modular, component-based architecture.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Cursor", "framer-motion", "react"],
     experience: [
-      "Implemented real-time inventory tracking using WebSocket",
-      "Integrated multiple payment gateways",
-      "Optimized database queries for better performance",
-      "Implemented caching strategies to reduce server load"
+      "Learned and implemented Next.js routing and page structure with no prior experience",
+      "Designed a fully responsive layout using Tailwind and mobile-first principles",
+      "Used Framer Motion to enhance user experience with animations",
+      "Applied AI-assisted development workflows to accelerate learning and overcome roadblocks",
+      "Developed reusable components for scalable UI",
+      "Understood core TypeScript concepts and applied them to real components and props"
     ],
     imageUrl: "/images/projects/Bella-Italia.png",
     githubUrl: "https://github.com/xCrowly/italian-ecommerce",
@@ -17,32 +19,53 @@ export const projects = [
   {
     title: "Expense Tracker",
     description: "A collaborative task management system with real-time updates.",
-    longDescription: "Developed a comprehensive task management system that allows teams to collaborate effectively. Features include real-time updates, file sharing, task dependencies, and detailed analytics.",
-    techStack: ["React", "React Router", "BootStrap", "Firebase Authintication", "Firebase Realtime Database", "Charts"],
+    longDescription: "A responsive, user-friendly expense tracking platform that allows users to log, view, and delete their financial transactions with real-time updates and secure authentication. Built using React, Firebase, and Chart.js, the app features interactive data visualization, real-time database synchronization, and user account management, all designed to help users take control of their spending. The app supports seamless cross-device updates and emphasizes clean UI/UX, making personal finance tracking both efficient and visually intuitive.",
+    techStack: ["React", "React Router", "Cursor", "BootStrap", "Firebase Authintication", "Firebase Realtime Database", "Charts", "Lucide-React"],
     experience: [
-      "Built real-time collaboration features",
-      "Implemented file upload and storage system",
-      "Created complex task dependency logic",
-      "Developed detailed analytics dashboard"
+      "Built real-time expense syncing with Firebase Realtime Database",
+      "Integrated Firebase Authentication for secure user sign-up/login",
+      "Created dynamic expense charts using react-chartjs-2 and Chart.js",
+      "Implemented component-level state management for responsive UI updates",
+      "Designed and styled with Sass and Bootstrap for a responsive, mobile-friendly layout",
+      "Organized scalable project structure and applied React Router for multi-view navigation"
     ],
     imageUrl: "/images/projects/Expense-Tracker.png",
-    githubUrl: "https://expense-tracker-404.netlify.app/",
+    githubUrl: "https://github.com/xCrowly/Expense-Tracker",
     liveUrl: "https://expense-tracker-404.netlify.app/"
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management.",
-    longDescription: "Created a comprehensive social media analytics dashboard that aggregates data from multiple platforms. Provides insights, scheduling capabilities, and automated reporting.",
-    techStack: ["Vue.js", "Python", "FastAPI", "PostgreSQL", "Redis", "Celery"],
+    title: "Old Portfolio",   
+    description: "A full-featured portfolio website showcasing my projects.",
+    longDescription: "This was my first self-designed and self-developed portfolio website, created entirely from scratch without AI assistance. It served as a digital résumé and project showcase, demonstrating my core front-end skills and my ability to structure, style, and animate a complete multi-section web app on my own. The design is fully responsive and visually engaging, featuring smooth animations, section-based navigation, and a consistent color scheme. This project was a key milestone in proving to myself and future employers that I could turn my knowledge into a real, working website without templates or frameworks beyond the essentials.",
+    techStack: ["React", "BootStrap", "JavaScript", "animate.css"],
     experience: [
-      "Integrated multiple social media APIs",
-      "Implemented complex data visualization",
-      "Built automated reporting system",
-      "Developed scheduling algorithm"
+      "Designed and built a responsive, multi-section layout with custom SCSS styling",
+      "Implemented scroll-based and hover animations using Animate.css",
+      "Gained deep familiarity with React component architecture and state management",
+      "Used Bootstrap grid and utility classes to ensure a fluid layout across devices",
+      "Learned how to manually deploy and maintain a production-level React site",
+      "Improved design consistency and accessibility with semantic HTML and logical flow"
     ],
-    imageUrl: "/images/projects/social-dashboard.jpg",
-    githubUrl: "https://github.com/yourusername/social-dashboard",
-    liveUrl: "https://social-dashboard-demo.com"
+    imageUrl: "/images/projects/My-old-portfolio.png",
+    githubUrl: "https://github.com/xCrowly/my-portfolio-react-v2",
+    liveUrl: "https://ahmedbadawy.netlify.app/"
+  },
+  {
+    title: "Calculator",
+    description: "A simple calculator application with basic arithmetic operations.",
+    longDescription: "A fully functional web-based calculator built using plain JavaScript, HTML, and CSS (with Sass and Bootstrap). This project was developed from scratch without libraries or AI assistance, focusing on learning and mastering DOM manipulation, event handling, and core programming logic. The calculator supports standard arithmetic operations, chained inputs, operator correction, sign toggling, and percentage calculations. It also includes safeguards against invalid input combinations and long formulas, all managed via intuitive user interactions.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    experience: [
+      "Practiced DOM traversal and manipulation using getElementById and innerHTML",
+      "Implemented custom arithmetic logic, including input correction, operator replacement, and result formatting",
+      "Developed interactive UI behavior using event listeners and manual state handling",
+      "Handled edge cases like invalid formula endings and multiple operators",
+      "Enhanced layout and responsiveness using Bootstrap grid system",
+      "Gained foundational understanding of logic flows, conditionals, and string parsing in JavaScript"
+    ],
+    imageUrl: "/images/projects/Calculator.png",  
+    githubUrl: "https://github.com/xCrowly/Calculator",
+    liveUrl: "https://xcrowly.github.io/Calculator/"
   },
   {
     title: "AI Image Generator",
@@ -75,21 +98,6 @@ export const projects = [
     liveUrl: "https://real-estate-demo.com"
   },
   {
-    title: "Learning Management System",
-    description: "Educational platform with interactive courses and assessments.",
-    longDescription: "Built a learning management system with features like course creation, interactive assessments, progress tracking, and certification management.",
-    techStack: ["React", "Django", "PostgreSQL", "Redis", "AWS", "Docker"],
-    experience: [
-      "Developed interactive assessment system",
-      "Implemented progress tracking",
-      "Created certification management",
-      "Built course authoring tools"
-    ],
-    imageUrl: "/images/projects/lms.jpg",
-    githubUrl: "https://github.com/yourusername/lms",
-    liveUrl: "https://lms-demo.com"
-  },
-  {
     title: "Fitness Tracking App",
     description: "Mobile-first fitness tracking application with social features.",
     longDescription: "Created a fitness tracking application that allows users to track workouts, set goals, and connect with other fitness enthusiasts.",
@@ -103,50 +111,5 @@ export const projects = [
     imageUrl: "/images/projects/fitness.jpg",
     githubUrl: "https://github.com/yourusername/fitness",
     liveUrl: "https://fitness-demo.com"
-  },
-  {
-    title: "Recipe Sharing Platform",
-    description: "Community-driven recipe sharing and meal planning platform.",
-    longDescription: "Developed a recipe sharing platform where users can share recipes, create meal plans, and generate shopping lists automatically.",
-    techStack: ["Vue.js", "Laravel", "MySQL", "Redis", "Elasticsearch"],
-    experience: [
-      "Implemented recipe management system",
-      "Created meal planning features",
-      "Built shopping list generator",
-      "Developed search functionality"
-    ],
-    imageUrl: "/images/projects/recipe.jpg",
-    githubUrl: "https://github.com/yourusername/recipe",
-    liveUrl: "https://recipe-demo.com"
-  },
-  {
-    title: "Budget Tracking App",
-    description: "Personal finance management application with insights.",
-    longDescription: "Built a comprehensive budget tracking application with expense categorization, financial insights, and goal setting features.",
-    techStack: ["React", "Node.js", "MongoDB", "D3.js", "Plaid API"],
-    experience: [
-      "Integrated banking APIs",
-      "Implemented expense categorization",
-      "Created financial insights dashboard",
-      "Developed goal tracking system"
-    ],
-    imageUrl: "/images/projects/budget.jpg",
-    githubUrl: "https://github.com/yourusername/budget",
-    liveUrl: "https://budget-demo.com"
-  },
-  {
-    title: "Weather Dashboard",
-    description: "Real-time weather monitoring and forecasting application.",
-    longDescription: "Created a weather dashboard that provides real-time weather data, forecasting, and severe weather alerts with interactive visualizations.",
-    techStack: ["React", "Node.js", "MongoDB", "D3.js", "Weather API"],
-    experience: [
-      "Integrated multiple weather APIs",
-      "Created interactive weather maps",
-      "Implemented alert system",
-      "Built data visualization components"
-    ],
-    imageUrl: "/images/projects/weather.jpg",
-    githubUrl: "https://github.com/yourusername/weather",
-    liveUrl: "https://weather-demo.com"
   }
 ]; 

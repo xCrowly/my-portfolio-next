@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CertificateCard } from "./CertificateCard";
 
@@ -16,6 +16,11 @@ export const certificates = [
     link: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
   },
   {
+    title: "IELTS",
+    image: "/images/certificates/IELTS.jpg",
+    link: "https://www.coursera.org/professional-certificates/google-ux-design",
+  },
+  {
     title: "FreeCodeCamp Responsive web design",
     image: "/images/certificates/FreeCodeCamp-Responsive-web-design.png",
     link: "https://www.coursera.org/professional-certificates/meta-front-end-developer",
@@ -25,15 +30,13 @@ export const certificates = [
     image: "/images/certificates/FreeCodeCamp-Responsive-web-design.png",
     link: "https://www.coursera.org/professional-certificates/google-ux-design",
   },
-  {
-    title: "IELTS",
-    image: "/images/certificates/IELTS.jpg",
-    link: "https://www.coursera.org/professional-certificates/google-ux-design",
-  },
 ];
 
 export function Certificates() {
   const [currentPage, setCurrentPage] = useState(0);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  
   const certificatesPerPage = 2;
   const totalPages = Math.ceil(certificates.length / certificatesPerPage);
 
@@ -43,17 +46,33 @@ export function Certificates() {
   );
 
   return (
-    <section id="certificates" className="py-16 px-4">
+    <section id="certificates" className="py-16 px-4" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          {...fadeInUp}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
           className="text-3xl font-bold text-center mb-12"
         >
           Certificates
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {currentCertificates.map((certificate) => (
-            <CertificateCard key={certificate.title} {...certificate} />
+          {currentCertificates.map((certificate, index) => (
+            <motion.div
+              key={certificate.title}
+              initial="initial"
+              animate={isInView ? "animate" : "initial"}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { duration: 0.5, delay: index * 0.2 }
+                }
+              }}
+            >
+              <CertificateCard {...certificate} />
+            </motion.div>
           ))}
         </div>
 

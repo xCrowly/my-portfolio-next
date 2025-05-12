@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   Terminal,
   Mail,
@@ -21,7 +21,7 @@ import { Skills } from "@/components/Skills";
 import { AboutMe } from "@/components/AboutMe";
 import { Certificates } from "@/components/Certificates";
 import { projects } from "@/data/projects";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -34,25 +34,40 @@ export default function Home() {
   const projectsPerPage = 4;
   const totalPages = Math.ceil(projects.length / projectsPerPage);
 
+  // Refs for scroll animations
+  const heroRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  // Check if sections are in view
+  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
+  const projectsInView = useInView(projectsRef, { once: true, amount: 0.3 });
+  const contactInView = useInView(contactRef, { once: true, amount: 0.3 });
+
   const currentProjects = projects.slice(
     currentPage * projectsPerPage,
     (currentPage + 1) * projectsPerPage
   );
 
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-[#e2e2e2] font-inter">
+    <main className="bg-[#0a0a0a] min-h-screen text-text font-inter">
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-16 px-4">
+      <section id="home" className="pt-32 pb-16 px-4" ref={heroRef}>
         <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center">
+          <motion.div
+            initial="initial"
+            animate={heroInView ? "animate" : "initial"}
+            variants={fadeInUp}
+            className="text-center"
+          >
             <Terminal className="h-16 w-16 text-accent mx-auto mb-6" />
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Hi, I&apos;m [Ahmed]
             </h1>
-            <p className="text-xl md:text-2xl text-[#e2e2e2]/80 mb-8">
-              I build modern web applications
+            <p className="text-xl md:text-2xl text-text/80 mb-8">
+              I build modern web applications & more.
             </p>
             <div className="flex justify-center gap-4">
               <a
@@ -75,10 +90,12 @@ export default function Home() {
       <Skills />
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4">
+      <section id="projects" className="py-16 px-4" ref={projectsRef}>
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            {...fadeInUp}
+            initial="initial"
+            animate={projectsInView ? "animate" : "initial"}
+            variants={fadeInUp}
             className="text-3xl font-bold text-center mb-12"
           >
             Projects
@@ -119,16 +136,27 @@ export default function Home() {
       <Certificates />
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 bg-background">
+      <section
+        id="contact"
+        className="py-16 px-4 bg-gray-background"
+        ref={contactRef}
+      >
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            {...fadeInUp}
+            initial="initial"
+            animate={contactInView ? "animate" : "initial"}
+            variants={fadeInUp}
             className="text-3xl font-bold text-center mb-12"
           >
             Contact
           </motion.h2>
           <div className="flex flex-col md:flex-row gap-8">
-            <motion.div {...fadeInUp} className="flex-1 content-around">
+            <motion.div
+              initial="initial"
+              animate={contactInView ? "animate" : "initial"}
+              variants={fadeInUp}
+              className="flex-1 content-around"
+            >
               <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col items-center gap-8">
                   <div className="grid grid-cols-2 w-full gap-4 max-w-lg">
@@ -186,16 +214,21 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-            <motion.form {...fadeInUp} className="flex-1 space-y-4">
+            <motion.form
+              initial="initial"
+              animate={contactInView ? "animate" : "initial"}
+              variants={fadeInUp}
+              className="flex-1 space-y-4"
+            >
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full p-3 bg-gray-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
+                className="w-full p-3 bg-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
               />
               <textarea
                 placeholder="Your message"
                 rows={4}
-                className="w-full p-3 bg-gray-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
+                className="w-full p-3 bg-background border border-gray-800 rounded-lg focus:outline-none focus:border-accent"
               />
               <button
                 type="submit"
@@ -213,7 +246,7 @@ export default function Home() {
       <footer className="py-8 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center gap-8">
-            <div className="flex items-center gap-2 text-[#e2e2e2]/60">
+            <div className="flex items-center gap-2 text-text/60">
               <Copyright className="h-4 w-4" />
               <span>Built with Next.js and</span>
               <Coffee className="h-4 w-4" />
