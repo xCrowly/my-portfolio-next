@@ -36,8 +36,8 @@ export const Skills = () => {
           {skills.map((category, index) => {
             const Icon = category.icon;
             const isExpanded = expandedCategories.includes(category.category);
-            const displayItems = isExpanded ? category.items : category.items.slice(0, 4);
-            const hasMore = category.items.length > 4;
+            const displayItems = isExpanded ? category.items : category.items.slice(0, 3);
+            const hasMore = category.items.length > 3;
 
             return (
               <motion.div

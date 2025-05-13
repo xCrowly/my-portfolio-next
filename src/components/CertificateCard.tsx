@@ -22,7 +22,7 @@ export function CertificateCard({ title, image, link }: CertificateCardProps) {
         rel="noopener noreferrer"
         className="block group"
       >
-        <div className="bg-gray-800 rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+        <div className="bg-gray-background border-text/30 border-1 hover:border-accent rounded-lg overflow-hidden transition-transform transform">
           <div className="p-4">
             <h3 className="text-xl font-semibold text-center mb-4">{title}</h3>
             <div className="relative aspect-[16/9] w-full">
@@ -30,6 +30,7 @@ export function CertificateCard({ title, image, link }: CertificateCardProps) {
                 src={image}
                 alt={title}
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover rounded-lg"
               />

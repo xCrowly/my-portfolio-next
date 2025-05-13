@@ -10,14 +10,39 @@ import {
   Youtube,
 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+
+interface MessageCount {
+  count: number;
+  date: string;
+}
+
+const MAX_MESSAGES_PER_DAY = 2;
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5 },
 };
+
+const getMessageCount = (): MessageCount => {
+  if (typeof window === 'undefined') return { count: 0, date: new Date().toDateString() };
+  
+  const stored = localStorage.getItem('messageCount');
+  if (!stored) return { count: 0, date: new Date().toDateString() };
+  
+  return JSON.parse(stored);
+};
+
+const updateMessageCount = (count: number) => {
+  const newCount: MessageCount = {
+    count,
+    date: new Date().toDateString()
+  };
+  localStorage.setItem('messageCount', JSON.stringify(newCount));
+};
+
 export const Contact = () => {
   const contactRef = useRef(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -26,6 +51,12 @@ export const Contact = () => {
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+  const [messageCount, setMessageCount] = useState<MessageCount>({ count: 0, date: new Date().toDateString() });
+
+  useEffect(() => {
+    const stored = getMessageCount();
+    setMessageCount(stored);
+  }, []);
 
   const contactInView = useInView(contactRef, { once: true, amount: 0.3 });
 
@@ -34,12 +65,30 @@ export const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
+    // Check if it's a new day
+    const currentDate = new Date().toDateString();
+    if (messageCount.date !== currentDate) {
+      // Reset count for new day
+      setMessageCount({ count: 0, date: currentDate });
+      updateMessageCount(0);
+    }
+
+    // Check if user has exceeded daily limit
+    if (messageCount.count >= MAX_MESSAGES_PER_DAY) {
+      setIsSubmitting(false);
+      setSubmitStatus({
+        type: "error",
+        message: `You've reached the limit of ${MAX_MESSAGES_PER_DAY} messages per day. Please try again tomorrow.`
+      });
+      return;
+    }
+
     try {
       const formData = new FormData(formRef.current!);
       const templateParams = {
-        from_name: formData.get('user_name'),
-        from_email: formData.get('user_email'),
-        message: formData.get('message'),
+        from_name: formData.get("user_name"),
+        from_email: formData.get("user_email"),
+        message: formData.get("message"),
       };
 
       const result = await emailjs.send(
@@ -50,9 +99,14 @@ export const Contact = () => {
       );
 
       if (result.text === "OK") {
+        // Update message count after successful send
+        const newCount = messageCount.count + 1;
+        setMessageCount({ count: newCount, date: currentDate });
+        updateMessageCount(newCount);
+        
         setSubmitStatus({
           type: "success",
-          message: "Message sent successfully!",
+          message: `Message sent successfully! You have ${MAX_MESSAGES_PER_DAY - newCount} messages remaining today.`,
         });
         if (formRef.current) {
           formRef.current.reset();
@@ -136,7 +190,7 @@ export const Contact = () => {
                       <span>YouTube</span>
                     </a>
                     <a
-                      href="#"
+                      href="https://drive.google.com/file/d/19LsvDdYS2vtM0vh6n5nBvMfSx1zo9sGr/view?usp=sharing"
                       target="_blank"
                       className="flex items-center gap-2 text-text hover:text-accent transition-colors"
                     >

@@ -4,7 +4,7 @@ export const skills = [
   {
     category: "Frontend",
     icon: Code,
-    items: ["React", "React router", "JavaScript", "Tailwind", "Mobile-first Design", "Next.js", "TypeScript", "bootstrap", "HTML", "CSS", "jQuery"],
+    items: ["Next.js", "React", "JavaScript", "React router", "Tailwind", "Mobile-first Design", "TypeScript", "bootstrap", "HTML", "CSS", "jQuery"],
   },
   {
     category: "Backend",

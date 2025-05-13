@@ -51,6 +51,23 @@ export const projects = [
     liveUrl: "https://ahmedbadawy.netlify.app/"
   },
   {
+    title: "Lawyer Website (Arabic Localization)",
+    description: "A fully customized lawyer portfolio website.",
+    longDescription: "Developed a fully customized lawyer portfolio website using a professional HTML template from ThemeWagon. The original English layout was completely adapted into Arabic, including right-to-left (RTL) formatting, localized content, and updated media assets. This project demonstrates my ability to work with pre-built themes, restructure layouts for different languages and audiences, and deliver polished results for real-world clients.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    experience: [
+      "Localized an English-based UI into Arabic RTL layout",
+      "Customized and structured legal content for clarity and professional tone",
+      "Replaced and optimized client-specific images and icons",
+      "Enhanced sections like About, Practice Areas, and Contact for better UX",
+      "Practiced real-world client communication and project delivery standards",
+      "Gained hands-on experience adapting third-party templates to real business needs"
+    ],
+    imageUrl: "/images/projects/lawyer.png",  
+    githubUrl: "https://github.com/xCrowly/Law",
+    liveUrl: "https://lawyer20.netlify.app/"
+  },
+  {
     title: "Calculator",
     description: "A simple calculator application with basic arithmetic operations.",
     longDescription: "A fully functional web-based calculator built using plain JavaScript, HTML, and CSS (with Sass and Bootstrap). This project was developed from scratch without libraries or AI assistance, focusing on learning and mastering DOM manipulation, event handling, and core programming logic. The calculator supports standard arithmetic operations, chained inputs, operator correction, sign toggling, and percentage calculations. It also includes safeguards against invalid input combinations and long formulas, all managed via intuitive user interactions.",
@@ -68,48 +85,20 @@ export const projects = [
     liveUrl: "https://xcrowly.github.io/Calculator/"
   },
   {
-    title: "AI Image Generator",
-    description: "Web application for generating AI art using stable diffusion.",
-    longDescription: "Built a web application that uses stable diffusion models to generate AI art. Features include style transfer, image manipulation, and gallery management.",
-    techStack: ["React", "Python", "PyTorch", "FastAPI", "MongoDB", "Docker"],
+    title: "Meme boss",
+    description: "interactive Meme Generator.",
+    longDescription: "A fun and interactive Meme Generator that fetches random meme images from a public API and allows users to overlay custom top and bottom text directly onto the image. While simple by today’s standards, this project marked an important milestone in my journey as a developer. It was my first time working with APIs, dynamic image rendering, and user input handling to generate real-time visual content on the web.",
+    techStack: ["HTML", "CSS", "JavaScript", "Fetch API"],
     experience: [
-      "Implemented AI model integration",
-      "Optimized image processing pipeline",
-      "Created gallery management system",
-      "Developed user style preferences"
+      "Integrated and fetched data from a public meme API",
+      "Dynamically rendered images and updated them in real time",
+      "Collected user input and layered custom text over images using JavaScript",
+      "Handled image loading and UI responsiveness",
+      "Learned API request/response cycles and asynchronous JavaScript",
+      "Boosted confidence in solving small but meaningful frontend challenges"
     ],
-    imageUrl: "/images/projects/ai-generator.jpg",
-    githubUrl: "https://github.com/yourusername/ai-generator",
-    liveUrl: "https://ai-generator-demo.com"
-  },
-  {
-    title: "Real Estate Platform",
-    description: "Property management and listing platform with virtual tours.",
-    longDescription: "Developed a comprehensive real estate platform featuring virtual property tours, automated valuation, and property management tools.",
-    techStack: ["Next.js", "Three.js", "Node.js", "PostgreSQL", "AWS", "GraphQL"],
-    experience: [
-      "Implemented 3D virtual tours",
-      "Created automated valuation system",
-      "Built property management dashboard",
-      "Integrated mapping services"
-    ],
-    imageUrl: "/images/projects/real-estate.jpg",
-    githubUrl: "https://github.com/yourusername/real-estate",
-    liveUrl: "https://real-estate-demo.com"
-  },
-  {
-    title: "Fitness Tracking App",
-    description: "Mobile-first fitness tracking application with social features.",
-    longDescription: "Created a fitness tracking application that allows users to track workouts, set goals, and connect with other fitness enthusiasts.",
-    techStack: ["React Native", "Node.js", "MongoDB", "Firebase", "Redux"],
-    experience: [
-      "Built workout tracking system",
-      "Implemented social features",
-      "Created goal setting and tracking",
-      "Developed push notification system"
-    ],
-    imageUrl: "/images/projects/fitness.jpg",
-    githubUrl: "https://github.com/yourusername/fitness",
-    liveUrl: "https://fitness-demo.com"
+    imageUrl: "/images/projects/Meme-boss.jpg",
+    githubUrl: "https://meme-boss.netlify.app/",
+    liveUrl: "https://meme-boss.netlify.app/"
   }
 ]; 

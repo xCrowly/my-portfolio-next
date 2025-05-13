@@ -11,24 +11,24 @@ const fadeInUp = {
 
 export const certificates = [
   {
-    title: "FreeCodeCamp JavaScript",
+    title: "JavaScript",
     image: "/images/certificates/FreeCodeCamp-JavaScript-cert.png",
-    link: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+    link: "https://www.freecodecamp.org/certification/Crowly/javascript-algorithms-and-data-structures",
   },
   {
     title: "IELTS",
     image: "/images/certificates/IELTS.jpg",
-    link: "https://www.coursera.org/professional-certificates/google-ux-design",
-  },
-  {
-    title: "FreeCodeCamp Responsive web design",
-    image: "/images/certificates/FreeCodeCamp-Responsive-web-design.png",
-    link: "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+    link: "https://drive.google.com/file/d/1IMw3Wfh7SRbGsNmATrr2jU--vsb6iUyS/view",
   },
   {
     title: "Responsive web design",
     image: "/images/certificates/FreeCodeCamp-Responsive-web-design.png",
-    link: "https://www.coursera.org/professional-certificates/google-ux-design",
+    link: "https://www.freecodecamp.org/certification/Crowly/responsive-web-design",
+  },
+  {
+    title: "FrontEnd Development Libraries",
+    image: "/images/certificates/FreeCodeCamp-FrontEnd-Libraries.png",
+    link: "https://www.freecodecamp.org/certification/Crowly/front-end-development-libraries",
   },
 ];
 
@@ -36,7 +36,7 @@ export function Certificates() {
   const [currentPage, setCurrentPage] = useState(0);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-  
+
   const certificatesPerPage = 2;
   const totalPages = Math.ceil(certificates.length / certificatesPerPage);
 
@@ -64,11 +64,11 @@ export function Certificates() {
               animate={isInView ? "animate" : "initial"}
               variants={{
                 initial: { opacity: 0, y: 20 },
-                animate: { 
-                  opacity: 1, 
+                animate: {
+                  opacity: 1,
                   y: 0,
-                  transition: { duration: 0.5, delay: index * 0.2 }
-                }
+                  transition: { duration: 0.5, delay: index * 0.2 },
+                },
               }}
             >
               <CertificateCard {...certificate} />

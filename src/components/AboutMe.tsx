@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { Brain, Rocket, Users, Heart } from "lucide-react";
+import { Brain, Rocket, Users, Heart, Flame } from "lucide-react";
 import { useState, useRef } from "react";
 
 const fadeInUp = {
@@ -73,6 +73,7 @@ export const AboutMe = () => {
             <strong>Sass/SCSS</strong>, and tools like <strong>Git</strong> &{" "}
             <strong>GitHub</strong>.
           </p>
+          <br />
 
           <p className="text-gray-300 text-lg">
             My background in design software like <strong>Canva</strong>,{" "}
@@ -150,6 +151,14 @@ export const AboutMe = () => {
             </motion.div>
           )}
         </motion.div>
+        <motion.h2
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          variants={fadeInUp}
+          className="text-3xl font-bold text-center mb-12"
+        >
+          <Flame className="inline-block mr-2 text-accent" size={36} />Top skills
+        </motion.h2>
         <div className="grid md:grid-cols-2 gap-8" ref={passionsRef}>
           {passions.map((passion, index) => (
             <motion.div
