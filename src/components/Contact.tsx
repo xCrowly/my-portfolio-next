@@ -8,10 +8,13 @@ import {
   Phone,
   FileUser,
   Youtube,
+  Copy,
+  Check
 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import toast, { Toaster } from 'react-hot-toast';
 
 interface MessageCount {
   count: number;
@@ -47,11 +50,13 @@ export const Contact = () => {
   const contactRef = useRef(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
   const [messageCount, setMessageCount] = useState<MessageCount>({ count: 0, date: new Date().toDateString() });
+  const phoneNumber = "+393928097565";
 
   useEffect(() => {
     const stored = getMessageCount();
@@ -59,6 +64,27 @@ export const Contact = () => {
   }, []);
 
   const contactInView = useInView(contactRef, { once: true, amount: 0.3 });
+
+  const handleCopyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText(phoneNumber);
+      setIsCopied(true);
+      toast.success('Phone number copied!', {
+        duration: 2000,
+        position: 'bottom-center',
+        style: {
+          background: '#333',
+          color: '#fff',
+          borderRadius: '10px',
+        },
+        icon: '📞',
+      });
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch (err) {
+      toast.error('Failed to copy phone number');
+      console.error('Failed to copy phone number:', err);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -129,6 +155,7 @@ export const Contact = () => {
       className="py-16 px-4 bg-gray-background"
       ref={contactRef}
     >
+      <Toaster />
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial="initial"
@@ -174,13 +201,18 @@ export const Contact = () => {
                     </a>
                   </div>
                   <div className="flex flex-col gap-4 items-start">
-                    <a
-                      href="callto:+3928097565"
+                    <button
+                      onClick={handleCopyPhone}
                       className="flex items-center gap-2 text-text hover:text-accent transition-colors"
                     >
                       <Phone className="h-5 w-5" />
                       <span>Phone</span>
-                    </a>
+                      {isCopied ? (
+                        <Check className="h-4 w-4 text-green-500" />
+                      ) : (
+                        <Copy className="h-4 w-4" />
+                      )}
+                    </button>
                     <a
                       href="https://www.youtube.com/@tikkawi"
                       target="_blank"

@@ -73,7 +73,7 @@ export const ProjectCard = ({
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm bg-accent-hover rounded px-2 py-1 text-text hover:text-text/80"
+                className="text-sm bg-accent rounded px-2 py-1 text-text hover:text-text/80"
               >
                 GitHub
               </a>
