@@ -62,7 +62,7 @@ export const AboutMe = () => {
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={fadeInUp}
-          className="mb-12 text-justify max-w-3xl mx-auto"
+          className="mb-12 text-justify max-w-5xl mx-auto"
         >
           <p className="text-gray-300 text-lg">
             Hi! I&apos;m a passionate{" "}
